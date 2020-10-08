@@ -11,5 +11,8 @@
     "elm-hot": "^1.1.5",
     "node-elm-compiler": "^5.0.5",
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "assert-plus": "^1.0.0"
   }
 }
