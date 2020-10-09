@@ -1,0 +1,27 @@
+module Player exposing (takeTurn)
+
+import Warrior exposing (Warrior)
+import Warrior.History exposing (History)
+import Warrior.Map exposing (Map)
+import Warrior.Direction
+import Warrior.Map.Tile 
+import Warrior.Coordinate exposing (Coordinate)
+import Warrior.Map.Tile exposing (Tile)
+
+
+takeTurn : Warrior -> Map -> History -> Warrior.Action
+takeTurn warrior map history =
+    Warrior.Move Warrior.Direction.Right
+
+
+maybeNextRight : Warrior -> Map -> Maybe Bool
+maybeNextRight warrior map =
+        Warrior.Map.look Warrior.Direction.Right warrior map
+        |> List.head
+        |> Maybe.map nextRight
+        
+nextRight : (Coordinate, Tile) -> Bool
+nextRight input = 
+    Tuple.second input
+    |> Warrior.Map.Tile.canMoveOnto
+
